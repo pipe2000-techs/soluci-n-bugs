@@ -62,7 +62,7 @@
                             <p class="font-medium text-gray-800 text-sm">{{ $task->title ?: '(sin titulo)' }}</p>
                             <div class="flex items-center gap-2 mt-2">
                                 <span class="text-xs px-2 py-0.5 rounded-full bg-{{ $task->priority_color }}-100 text-{{ $task->priority_color }}-700">{{ $task->priority }}</span>
-                                <span class="text-xs text-gray-400">{{ $task->estimated_hours }}h</span>
+                                <span class="text-xs text-gray-400">{{ $task->total_estimated_hours }}h</span>
                                 @if($task->subtasks->count())
                                     <span class="text-xs text-gray-400">{{ $task->subtasks->count() }} sub</span>
                                 @endif

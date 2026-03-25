@@ -26,7 +26,7 @@
         <div class="flex items-center gap-4 mt-4">
             <span class="text-xs px-2 py-1 rounded-full bg-{{ $task->priority_color }}-100 text-{{ $task->priority_color }}-700 font-medium">{{ $task->priority }}</span>
             <span class="text-sm text-gray-600">Estado: <strong>{{ $task->status_label }}</strong></span>
-            <span class="text-sm text-gray-600">{{ $task->estimated_hours }}h estimadas</span>
+            <span class="text-sm text-gray-600">{{ $task->total_estimated_hours }}h totales</span>
         </div>
     </div>
 

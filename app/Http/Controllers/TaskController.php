@@ -16,7 +16,7 @@ class TaskController extends Controller
     public function store(Request $request, Project $project)
     {
         $validated = $request->validate([
-            'title' => 'nullable|string|max:255',
+            'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'priority' => 'required|in:alta,media,baja',
             'status' => 'required|in:backlog,en_progreso,testing,terminada',

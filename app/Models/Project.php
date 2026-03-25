@@ -23,7 +23,7 @@ class Project extends Model
 
     public function getTotalEstimatedHoursAttribute(): float
     {
-        return $this->tasks->sum('estimated_hours');
+        return $this->tasks->sum(fn ($task) => $task->total_estimated_hours);
     }
 
     public function getCompletedTasksCountAttribute(): int

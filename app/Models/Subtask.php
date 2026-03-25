@@ -9,6 +9,10 @@ class Subtask extends Model
 {
     protected $fillable = ['task_id', 'title', 'status', 'estimated_hours'];
 
+    protected $casts = [
+        'estimated_hours' => 'float',
+    ];
+
     public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class);

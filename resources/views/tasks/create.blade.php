@@ -10,8 +10,8 @@
         @csrf
 
         <div>
-            <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Titulo</label>
-            <input type="text" name="title" id="title" value="{{ old('title') }}" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Titulo *</label>
+            <input type="text" name="title" id="title" value="{{ old('title') }}" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
             @error('title') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
         </div>
 
@@ -42,8 +42,8 @@
         </div>
 
         <div>
-            <label for="estimated_hours" class="block text-sm font-medium text-gray-700 mb-1">Horas estimadas</label>
-            <input type="number" name="estimated_hours" id="estimated_hours" value="{{ old('estimated_hours', 0) }}" step="0.5" min="0" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <label for="estimated_hours" class="block text-sm font-medium text-gray-700 mb-1">Horas estimadas *</label>
+            <input type="number" name="estimated_hours" id="estimated_hours" value="{{ old('estimated_hours', 0) }}" required step="0.5" min="0" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
 
         <div class="flex gap-3 pt-2">

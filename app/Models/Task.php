@@ -10,6 +10,10 @@ class Task extends Model
 {
     protected $fillable = ['project_id', 'title', 'description', 'priority', 'status', 'estimated_hours'];
 
+    protected $casts = [
+        'estimated_hours' => 'float',
+    ];
+
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
@@ -42,5 +46,10 @@ class Task extends Model
             'terminada' => 'Terminada',
             default => $this->status,
         };
+    }
+
+    public function getTotalEstimatedHoursAttribute(): float
+    {
+        return (float) ($this->estimated_hours + $this->subtasks->sum('estimated_hours'));
     }
 }
