@@ -24,6 +24,7 @@ class ProjectController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'deadline' => 'nullable|date',
+            'status' => 'required|in:backlog,en_progreso,testing,terminada',
         ]);
 
         $project = Project::create($validated);
@@ -48,6 +49,7 @@ class ProjectController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'deadline' => 'nullable|date',
+            'status' => 'required|in:backlog,en_progreso,testing,terminada',
         ]);
 
         $project->update($validated);

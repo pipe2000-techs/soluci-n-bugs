@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
-    protected $fillable = ['name', 'description', 'deadline'];
+    protected $fillable = ['name', 'description', 'deadline', 'status'];
 
     protected function casts(): array
     {
@@ -15,6 +15,8 @@ class Project extends Model
             'deadline' => 'date',
         ];
     }
+
+    public static array $statuses = ['backlog', 'en_progreso', 'testing', 'terminada'];
 
     public function tasks(): HasMany
     {
@@ -36,5 +38,16 @@ class Project extends Model
         $total = $this->tasks->count();
         if ($total === 0) return 0;
         return (int) round(($this->completed_tasks_count / $total) * 100);
+    }
+
+    public function getStatusLabelAttribute(): string
+    {
+        return match ($this->status) {
+            'backlog' => 'Backlog',
+            'en_progreso' => 'En Progreso',
+            'testing' => 'Testing',
+            'terminada' => 'Terminada',
+            default => $this->status,
+        };
     }
 }

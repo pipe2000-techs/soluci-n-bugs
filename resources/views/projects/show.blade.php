@@ -5,7 +5,10 @@
 <div class="flex items-start justify-between mb-6">
     <div>
         <a href="{{ route('projects.index') }}" class="text-sm text-blue-600 hover:underline mb-2 inline-block">&larr; Proyectos</a>
-        <h1 class="text-2xl font-bold text-gray-800">{{ $project->name }}</h1>
+        <div class="flex items-center gap-3">
+            <h1 class="text-2xl font-bold text-gray-800">{{ $project->name }}</h1>
+            <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-700">{{ $project->status_label }}</span>
+        </div>
         @if($project->description)
             <p class="text-gray-500 mt-1">{{ $project->description }}</p>
         @endif

@@ -18,7 +18,10 @@
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         @foreach($projects as $project)
             <a href="{{ route('projects.show', $project) }}" class="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition block">
-                <h2 class="font-semibold text-gray-800 mb-1">{{ $project->name }}</h2>
+                <div class="flex items-start justify-between gap-2">
+                    <h2 class="font-semibold text-gray-800 mb-1">{{ $project->name }}</h2>
+                    <span class="text-[11px] px-2 py-1 rounded-full bg-gray-100 text-gray-700">{{ $project->status_label }}</span>
+                </div>
                 @if($project->description)
                     <p class="text-sm text-gray-500 mb-3 line-clamp-2">{{ $project->description }}</p>
                 @endif
